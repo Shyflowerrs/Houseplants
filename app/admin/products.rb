@@ -6,9 +6,9 @@ ActiveAdmin.register Product do
   actions :all
   permit_params :name, :price, :size, :description, :image, :stock, :category_id
   # controller { actions :show, :index, :cancel }
-  permit_params do
-    permitted = %i[name price size description image stock category_id]
-    permitted << :other if params[:action] == "create" && current_admin_user.admin?
-    permitted
-  end
+  # permit_params do
+  #   permitted = %i[name price size description image stock category_id]
+  #   permitted << :other if params[:action] == "create" && current_admin_user.admin?
+  #   permitted
+  # end
 end

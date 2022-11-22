@@ -5,7 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+if Rails.env.development?
+  AdminUser.create!(email: "admin@example.com", password: "password",
+                    password_confirmation: "password")
+end
 
 # puts "plant " + plants
 Category.delete_all
@@ -14,6 +17,7 @@ Category.delete_all
                                description: Faker::Quote.famous_last_words,
                                size:        Faker::Number.number(digits: 2))
   next unless categories && categories.valid?
+
   25.times do
     plants = categories.products.find_or_create_by(
       name:        Faker::Games::LeagueOfLegends.champion,
