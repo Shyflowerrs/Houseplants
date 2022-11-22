@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   # get "home/show"
   # get "product/index"
   # get "product/create"
+  devise_scope :user do
+    get "/users/sign_out" => "devise/sessions#destroy"
+  end
   root "home#index"
   get "about", to: "about#index"
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
