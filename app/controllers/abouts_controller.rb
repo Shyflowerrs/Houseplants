@@ -1,9 +1,5 @@
 class AboutsController < InheritedResources::Base
-
-  private
-
-    def about_params
-      params.require(:about).permit()
-    end
-
+  def index
+    @page = About.first
+  end
 end
