@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :abouts
+  resources :products
   devise_for :users
   # get "home/index"
   # get "home/show"
@@ -16,4 +18,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  # get "product/search", to: "product#search"
+  resources :products, only: %i[index show] do
+    #   collection do
+    #     get "search"
+    #   end
+  end
 end

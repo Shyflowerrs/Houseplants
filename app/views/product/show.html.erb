@@ -1,0 +1,27 @@
+<div class="data">
+<h1><%= @plants.name %></h1>
+  <table class="data">
+    <thead>
+      <tr>
+
+        <th>Name</th>
+        <th>price</th>
+        <th>size</th>
+        <th>description</th>
+        <th>stock</th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+
+        <tr>
+          <td ><%= @plants.name %></td>
+          <td ><%= @plants.price %></td>
+          <td ><%= @plants.description %></td>
+          <td> <%= @plants.stock%></td>
+          <td> <%= @plants.size%></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
