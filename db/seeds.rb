@@ -11,6 +11,7 @@ if Rails.env.development?
 end
 
 # puts "plant " + plants
+Product.delete_all
 Category.delete_all
 4.times do
   categories = Category.create(name:        Faker::Game.genre,

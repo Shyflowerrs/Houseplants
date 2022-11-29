@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  get "products/search"
   resources :contacts
+  get "products/updated"
+  get "products/sale"
   resources :abouts
   resources :products
   devise_for :users

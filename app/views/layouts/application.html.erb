@@ -17,7 +17,12 @@
         Home
       </a>
 
-      <a class="navbar-item">Documentation</a>
+
+         <%= form_tag products_search_path, method: :get do |f| %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Vendors" %>
+  <%= select_tag :category,  options_for_select(Category.all.map{|el| [el.name, el.id]}), {include_blank: 'Select Category'} %>
+  <%= submit_tag 'Search' %>
+<% end %>
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">

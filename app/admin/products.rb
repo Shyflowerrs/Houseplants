@@ -4,7 +4,7 @@ ActiveAdmin.register Product do
   #
   # Uncomment all parameters which should be permitted for assignment
   actions :all
-  permit_params :name, :price, :size, :description, :image, :stock, :category_id
+  permit_params :name, :price, :size, :description, :image, :stock, :category_id, :sale
   # controller { actions :show, :index, :cancel }
   # permit_params do
   #   permitted = %i[name price size description image stock category_id]

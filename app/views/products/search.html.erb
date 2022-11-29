@@ -1,0 +1,19 @@
+
+<div class="data">
+
+<p>Results for  <%= params[:search]%>: <%= params[:category]%></p>
+<%if(params[:category].empty?)%>
+<p>we are empty!</p>
+  <%end%>
+<%if(@products.empty?)%>
+<p> sorry! you did not search for a valid dog breed.</p>
+
+<%else%>
+<ul>
+ <% @products.each do |dog|%>
+  <li> <%=link_to dog.name , dog %> </li>
+    <li> <%= dog.description  %> </li>
+  <%end%>
+</ul>
+<%end%>
+</div>
