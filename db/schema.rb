@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_29_231652) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_30_232113) do
   create_table "abouts", force: :cascade do |t|
     t.string "title"
     t.string "content"
@@ -35,8 +35,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_231652) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -55,7 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_231652) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.bigint "blob_id", null: false
+    t.integer "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
@@ -121,12 +121,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_231652) do
     t.boolean "sale"
   end
 
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.string "province_acronym"
+    t.decimal "PST"
+    t.decimal "GST"
+    t.decimal "HST"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "full_name"
     t.string "billing_address"
     t.string "country"
     t.string "phone"
+    t.integer "province_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false

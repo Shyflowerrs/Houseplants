@@ -5,9 +5,32 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-if Rails.env.development?
-  AdminUser.create!(email: "admin@example.com", password: "password",
-                    password_confirmation: "password")
+
+require "csv"
+
+# if Rails.env.development?
+#   AdminUser.create!(email: "admin@example.com", password: "password",
+#                     password_confirmation: "password")
+# end
+
+# Provices.destroy_all
+
+province_csv_file = Rails.root.join("db/provinces.csv")
+province_csv_data = File.read(province_csv_file)
+
+provinces = CSV.parse(province_csv_data, headers: true, encoding: "UTF-8")
+Province.delete_all
+provinces.each do |province|
+  # province = Province.find_or_create_by(name: name)
+  # next unless province && province.valid?
+
+  Province.create(
+    name:             province["name"],
+    province_acronym: province["province_acronym"],
+    PST:              province["PST"],
+    GST:              province["GST"],
+    HST:              province["HST"]
+  )
 end
 
 # puts "plant " + plants
