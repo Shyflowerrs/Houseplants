@@ -11,4 +11,16 @@ ActiveAdmin.register Product do
   #   permitted << :other if params[:action] == "create" && current_admin_user.admin?
   #   permitted
   # end
+  form do |f|
+    #   f.semantic_errors
+    #   f.inputs
+    # end
+    f.semantic_errors
+    f.inputs
+    f.inputs do
+      f.input :main_image, as:   :file,
+                           hint: f.object.main_image.present? ? image_tag(f.object.main_image, size: "50x50") : ""
+    end
+    f.actions
+  end
 end
