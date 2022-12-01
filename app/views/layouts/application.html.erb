@@ -17,13 +17,13 @@
         Home
       </a>
 
-
-         <%= form_tag products_search_path, method: :get do |f| %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Vendors" %>
-  <%= select_tag :category,  options_for_select(Category.all.map{|el| [el.name, el.id]}), {include_blank: 'Select Category'} %>
-  <%= submit_tag 'Search' %>
-<% end %>
-
+    <div class="navbar-item">
+      <%= form_tag products_search_path, method: :get do |f| %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Vendors" %>
+        <%= select_tag :category,  options_for_select(Category.all.map{|el| [el.name, el.id]}), {include_blank: 'All'} %>
+        <%= submit_tag 'Search' %>
+      <% end %>
+    </div>
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           More
@@ -48,9 +48,11 @@
     </div>
 
     <div class="navbar-end">
-      <div class="navbar-item">
+
           <% if user_signed_in? %>
-            Logged in as <strong><%= current_user.email %></strong>.
+            <div class="navbar-item">
+             <strong><%= current_user.username %></strong>.
+            </div>
             <div class="navbar-item">
               <%= link_to 'Edit profile', edit_user_registration_path %>
             </div>

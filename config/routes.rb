@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "category/index"
+  get "category/show"
   get "products/search"
   resources :contacts
   get "products/updated"
