@@ -23,9 +23,10 @@
         <%= f.label :billing_address %><br />
         <%= f.text_field :billing_address, autofocus: true, autocomplete: "billing address" %>
       </div>
+
       <div class="field">
-        <%= f.label :country %><br />
-        <%= f.text_field :country, autofocus: true, autocomplete: "country" %>
+        <%= f.label :province_id%><br />
+        <%= f.select :province_id, options_from_collection_for_select(Province.all, "id", "name",params[:province_id]), include_blank: "Select a Province" %>
       </div>
         <div class="field">
         <%= f.label :phone %><br />

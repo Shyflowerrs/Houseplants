@@ -1,3 +1,2 @@
 class Province < ApplicationRecord
-
 end

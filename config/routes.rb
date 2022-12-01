@@ -5,11 +5,12 @@ Rails.application.routes.draw do
   get "products/sale"
   resources :abouts
   resources :products
-  devise_for :users
+  # devise_for :users
   # get "home/index"
   # get "home/show"
   # get "product/index"
   # get "product/create"
+  devise_for :users, controllers: { registrations: "users/registrations" }
   devise_scope :user do
     get "/users/sign_out" => "devise/sessions#destroy"
   end
