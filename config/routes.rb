@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   get "category/index"
+  get "cart", to: "cart#show"
+  post "cart/add"
+  post "cart/remove"
   get "category/show"
   get "products/search"
   resources :contacts
