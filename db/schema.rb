@@ -122,6 +122,7 @@ ActiveRecord::Schema[7.0].define(version: 20_221_130_232_113) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "sale"
+    # t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "provinces", force: :cascade do |t|
@@ -151,7 +152,9 @@ ActiveRecord::Schema[7.0].define(version: 20_221_130_232_113) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-  add_foreign_key "users", "provinces"
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  # add_foreign_key "products", "categories"
+  add_foreign_key "users", "provinces"
 end

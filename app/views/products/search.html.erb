@@ -2,9 +2,7 @@
 <div class="data">
 
 <p>Results for  <%= params[:search]%>: <%= params[:category]%></p>
-<%if(params[:category].empty?)%>
-<p>we are empty!</p>
-  <%end%>
+
 <%if(@products.empty?)%>
 <p> sorry! you did not search for a valid dog breed.</p>
 

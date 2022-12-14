@@ -24,7 +24,6 @@ class ProductsController < InheritedResources::Base
       search = "%#{params[:search]}%"
       @products = Product.where("name LIKE ? AND category_id == ? OR description LIKE ? AND category_id == ?",
                                 search, params[:category], search, params[:category])
-      # @products = category.products
     end
     # @products = Product.all
   end

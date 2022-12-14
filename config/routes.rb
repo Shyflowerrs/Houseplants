@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
-  get "category/index"
-  get "category/show"
+  get 'cart/show'
+  resources :category
+  get "/category" => "category#index"
+  get "/category/:id" => "category#show"
   get "products/search"
   resources :contacts
   get "products/updated"
   get "products/sale"
   resources :abouts
   resources :products
+
   # devise_for :users
   # get "home/index"
   # get "home/show"
