@@ -13,7 +13,7 @@ if Rails.env.development?
                     password_confirmation: "password")
 end
 
-# Provices.destroy_all
+Orderable.destroy_all
 
 province_csv_file = Rails.root.join("db/provinces.csv")
 province_csv_data = File.read(province_csv_file)

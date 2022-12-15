@@ -1,6 +1,5 @@
 
 
-
 <div class="card">
 <%if @plants.main_image.present? %>
   <p><%= image_tag @plants.main_image.variant(resize_to_limit: [500,500]) %></p>
@@ -20,6 +19,12 @@
            <p>Description :     <%= @plants.description %></p>
 
       <time datetime="2016-1-1"> <%= @plants.created_at%></time>
+      <%= form_with(url: cart_add_path) do |f| %>
+      <%= f.hidden_field :id, value: @plants.id %>
+      <%= f.number_field :quantity, value: 0, min: 1 %>
+      <%= f.submit "Add To Cart", remote: true %>
+    <% end %>
     </div>
   </div>
+</div>
 </div>
