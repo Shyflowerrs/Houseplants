@@ -4,8 +4,8 @@
   <% if @cart.orderables.count > 0 %>
 
 <%= render  "cart/orderables"%>
-
 <p>Cart Sub Total: <%= @cart.total %>$</p>
+ <%= button_to 'Checkout', checkout_create_path, data: { turbo: false }, class: 'button' %>
   <% else %>
       <p>Your cart is empty</p>
   <% end %>
