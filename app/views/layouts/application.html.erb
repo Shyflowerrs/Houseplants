@@ -1,9 +1,20 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rare Plant Fairy</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  </head>
+  <body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-
-    </a>
-
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -17,8 +28,13 @@
         Home
       </a>
 
+        <a class="navbar-item" href="/cart">
+        Cart
+      </a>
 
+    <div class="navbar-item">
 
+    </div>
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           More
@@ -35,17 +51,13 @@
             Contact
           </a>
           <hr class="navbar-divider">
-          <a href="/category"class="navbar-item">
-           Categories
+          <a class="navbar-item">
+            Report an issue
           </a>
         </div>
       </div>
     </div>
-<%= form_tag products_search_path, method: :get do |f| %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Vendors" %>
-  <%= select_tag :category,  options_for_select(Category.all.map{|el| [el.name, el.id]}), {include_blank: 'Select Category'} %>
-  <%= submit_tag 'Search' %>
-<% end %>
+
     <div class="navbar-end">
 
           <% if user_signed_in? %>
@@ -62,40 +74,25 @@
           <% else %>
             <div class="navbar-item">
               <strong> <%= link_to "Sign up ", new_user_registration_path  %> </strong><br>
-                   </div>
+             </div>
+            <div class="navbar-item">
               <p><%= link_to " Login", new_user_session_path  %></p>
-
-
+            </div>
           <% end %>
-
-
       </div>
     </div>
   </div>
 </nav>
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rare Plant Fairy</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  </head>
-  <body>
   <section class="section">
     <div class="container">
       <h1 class="title">
       </h1>
       <p class="subtitle">
-
+      <%= form_tag products_search_path, method: :get do |f| %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Vendors" %>
+        <%= select_tag :category,  options_for_select(Category.all.map{|el| [el.name, el.id]}), {include_blank: 'All'} %>
+        <%= submit_tag 'Search' %>
+      <% end %>
 
            <%= yield %>
       </p>
