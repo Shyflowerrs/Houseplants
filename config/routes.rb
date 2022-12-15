@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'checkout/create'
+  post "checkout/create"
   # get 'cart/show'
   get "category/index"
   get "cart", to: "cart#show"
