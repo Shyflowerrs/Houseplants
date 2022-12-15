@@ -33,11 +33,7 @@
       </a>
 
     <div class="navbar-item">
-      <%= form_tag products_search_path, method: :get do |f| %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search Vendors" %>
-        <%= select_tag :category,  options_for_select(Category.all.map{|el| [el.name, el.id]}), {include_blank: 'All'} %>
-        <%= submit_tag 'Search' %>
-      <% end %>
+
     </div>
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
@@ -92,7 +88,11 @@
       <h1 class="title">
       </h1>
       <p class="subtitle">
-
+      <%= form_tag products_search_path, method: :get do |f| %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Vendors" %>
+        <%= select_tag :category,  options_for_select(Category.all.map{|el| [el.name, el.id]}), {include_blank: 'All'} %>
+        <%= submit_tag 'Search' %>
+      <% end %>
 
            <%= yield %>
       </p>
