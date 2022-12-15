@@ -1,2 +1,16 @@
-<h1>Category#index</h1>
-<p>Find me in app/views/category/index.html.erb</p>
+<section class="section">
+<div class="container">
+<ul>
+  <%    @categories.each do |category| %>
+  <li>
+    <a href="/category/<%= category.id %>">
+      <%= category.name %>
+    </a>
+  </li>
+  <%end%>
+</ul>
+<nav class="pagination" role="navigation" aria-label="pagination">
+
+</nav>
+</div>
+</section>
